@@ -1,0 +1,6 @@
+name,description,city,location_lat,location_lon,category,images,accessibilityInformation,dietaryRestrictionsSupported
+Taj Mahal,A white marble mausoleum symbolizing eternal love,Agra,27.1750,78.0421,historical site,["https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Taj_Mahal_India.jpg/1200px-Taj_Mahal_India.jpg", "https://upload.wikimedia.org/wikipedia/commons/b/b9/Taj_Mahal_reflections.jpg"]
+Agra Fort,A UNESCO World Heritage Site,Agra,27.1730,78.0421,historical site,["https://...", "..."],partially accessible,[]
+Mehtab Bagh,Mughal gardens offering views of Taj Mahal,Agra,27.1869,78.0349,garden,["https://...", "..."],partially accessible,[]
+Fatehpur Sikri,A UNESCO World Heritage Site,Agra,27.2405,78.0180,historical site,["https://...", "..."],limited accessibility,[]
+Jama Masjid,One of the largest mosques in India,Agra,27.1822,78.0435,religious site,["https://...", "..."],moderately accessible,[]

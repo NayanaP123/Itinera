@@ -1,0 +1,8 @@
+
+# Personal files
+.env
+config.py
+
+node_modules/
+
+yarn.lock
