@@ -3,11 +3,11 @@ const other=Router();
 
 
 other.get('/about',async(req,res)=>{
-    res.send("about")
+    res.render('abouts')
 })
 
 other.get('/explore',async(req,res)=>{
-    res.send("explore  page")
+    res.render('explore')
 })
 
 

@@ -1,5 +1,6 @@
 import express from 'express'
 import user from './src/routes/user'
+import itinerary from './src/models/itinerary'
 import other from './src/routes/others'
 import routes from './src/routes/authRoutes'
 import itin from './src/routes/itineraryroute'
