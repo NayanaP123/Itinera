@@ -12,9 +12,6 @@ other.get('/explore',async(req,res)=>{
 
 
 
-other.get('/getitineraopenai',async(req,res)=>{
-    res.render('getitineraopenai')
-})
 
 
 
