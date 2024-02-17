@@ -6,6 +6,14 @@ itin.get('/getitineraopenai',async(req,res)=>{
 })
 
 
+itin.get('/getitinera',async(req,res)=>{
+    res.render('getitinera')
+})
+
+
+itin.get('/itinera',async(req,res)=>{
+    res.render('itinera')
+})
 
 
 
