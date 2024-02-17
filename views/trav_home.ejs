@@ -1,15 +1,49 @@
 <%- include('partials/header'); -%>
 
-<header>
+<div class="hero" style="height: 100vh;  background-size: cover; 
+background-position: center; 
+display: flex;">
+  <div class="hero-left" style="flex:1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  padding: 180px;
+  line-height: 1.1;">
+      <div class="hero-hand-icon">
+          <p style="color: #0e0000;
+          font-size: 50px;
+          font-weight: 400;">Let's Start<br/>The Journey....</p>
+      </div>
+      <div class="hero-latest-btn" style="display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      width: 310px;
+      height: 70px;
+      border-radius: 75px;
+      margin-top: 30px;
+      background: #faf55f;
+      color: rgb(0, 0, 0);
+      font-size: 28px;
+      font-weight: 80;">
+          <div>
+              <a href="/getitinera">Get Itinerary</a>
+              <a href="/getitineraopenai">Get Itinerary using openai</a>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- <header>
   <div class="trav_home">
     <img src="/wall.jpg" alt="">
   </div>
   <div class="headings">
     <h2>Travel Itineraries</h2>
-    <h3>By group 2</h3>
+    <h3>By group 2</h3> -->
     <!-- <a href="/ititnerary" class="btn">Itinerary</a> -->
-  </div>
-</header>
+  <!-- </div>
+</header> -->
 
 
 <%- include('partials/footer'); -%>

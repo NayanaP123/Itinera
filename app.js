@@ -24,6 +24,7 @@ app.use(express.static('public'));
 app.use(express.json())
 app.use(authRoutes)
 app.use(cookieParser());
+app.use(other)
 
 
 app.use(express.urlencoded({extended:true}))
