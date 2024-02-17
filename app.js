@@ -2,6 +2,7 @@ import express from 'express'
 import user from './src/routes/user'
 import other from './src/routes/others'
 import routes from './src/routes/authRoutes'
+import itin from './src/routes/itineraryroute'
 const authRoutes = require('./src/routes/authRoutes');
 const cookieParser = require('cookie-parser');
 
@@ -17,6 +18,7 @@ app.use(express.static('public'));
 app.use(express.json())
 app.use(authRoutes)
 app.use(other)
+app.use(itin)
 app.use(cookieParser());
 
 
