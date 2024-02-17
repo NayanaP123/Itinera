@@ -1,5 +1,7 @@
 import express from 'express'
 import user from './src/routes/user'
+import other from './src/routes/others'
+import routes from './src/routes/authRoutes'
 const authRoutes = require('./src/routes/authRoutes');
 const cookieParser = require('cookie-parser');
 //import { engine } from 'express-handlebars';
@@ -25,9 +27,9 @@ app.use(cookieParser());
 
 
 app.use(express.urlencoded({extended:true}))
-app.use('/',user)
-// app.get('/', (req, res) => {
-//     res.render('trav_home');
-// });
+//app.use('/',user)
+app.get('/', (req, res) => {
+    res.render('trav_home');
+});
 
 app.listen(process.env.PORT)
