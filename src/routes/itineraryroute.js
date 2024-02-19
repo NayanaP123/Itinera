@@ -11,10 +11,17 @@ itin.get('/getitinera',async(req,res)=>{
 })
 
 
-itin.get('/itinera',async(req,res)=>{
-    res.render('itinera')
-})
+itin.post('/itinera', async (req, res) => {
+    const { destination, startDate, numberOfDays, budget, travelType } = req.body;
+  
+    // Call your itinerary generation function here
+    const itinerary = await generateItinerary(destination, startDate, numberOfDays, budget, travelType);
+  
+    // Render the itinerary using EJS
+    res.render('itinera', { itinerary });
+  });
 
+  
 
 
 
