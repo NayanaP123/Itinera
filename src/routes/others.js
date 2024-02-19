@@ -86,10 +86,6 @@ other.get('/settings',async(req,res)=>{
 })
 
 
-// other.get('/logins',async(req,res)=>{
-//     res.render('logins')
-// })
-
 
 
 

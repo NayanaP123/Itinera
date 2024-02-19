@@ -50,7 +50,7 @@ export default {
     findAllActivities,
     findCitiesAndActivities
 };
-=======
+//=======
 
 async function generateItinerary(destination, startDate, numberOfDays, budget, travelType) {
   
