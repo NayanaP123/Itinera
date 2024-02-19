@@ -20,8 +20,9 @@ app.use(express.json())
 app.use(authRoutes)
 app.use(other)
 app.use(itin)
-app.use(cookieParser());
 app.use(search)
+app.use(cookieParser());
+
 
 
 app.use(express.urlencoded({extended:true}))
