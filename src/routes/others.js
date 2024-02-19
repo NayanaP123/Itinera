@@ -1,9 +1,18 @@
 import {Router} from "express";
-import userModel from '../models/user'
-const other=Router()
+const other=Router();
 
 
 other.get('/about',async(req,res)=>{
-    //const result = await userModel.findAll()
     res.send("about")
 })
+
+other.get('/explore',async(req,res)=>{
+    res.send("explore  page")
+})
+
+
+
+
+
+
+export default other;
