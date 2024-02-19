@@ -3,6 +3,7 @@ import user from './src/routes/user'
 import other from './src/routes/others'
 import routes from './src/routes/authRoutes'
 import itin from './src/routes/itineraryroute'
+import search from './src/routes/search'
 const authRoutes = require('./src/routes/authRoutes');
 const cookieParser = require('cookie-parser');
 
@@ -20,7 +21,7 @@ app.use(authRoutes)
 app.use(other)
 app.use(itin)
 app.use(cookieParser());
-
+app.use(search)
 
 
 app.use(express.urlencoded({extended:true}))
