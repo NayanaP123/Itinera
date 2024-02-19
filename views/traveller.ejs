@@ -1,0 +1,90 @@
+<%- include('partials/header'); -%>
+
+<h2>Traveller Signup</h2>
+<form action="/traveller_home" onsubmit="return validatePassword()">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required><br><br>
+    
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required><br><br>
+    
+    <label for="confirmPassword">Confirm Password:</label>
+    <input type="password" id="confirmPassword" name="confirmPassword" required><br><br>
+    
+    <label for="destination">Destination:</label>
+    <input type="text" id="destination" name="destination" required><br><br>
+    
+    <label for="startDate">Start Date:</label>
+    <input type="date" id="startDate" name="startDate" required><br><br>
+    
+    <label for="numberOfDays">Number of Days:</label>
+    <input type="number" id="numberOfDays" name="numberOfDays" required><br><br>
+    
+    <label for="budget">Budget:</label>
+    <input type="number" id="budget" name="budget" required><br><br>
+    
+    <label for="tripType">Type of Trip:</label>
+    <select id="tripType" name="tripType">
+        <option value="family">Family</option>
+        <option value="friends">Friends</option>
+        <option value="solo">Solo</option>
+    </select><br><br>
+    
+    <label for="preference">Preference:</label><br>
+    <div id="preference" class="highlightedRect">
+        <input type="checkbox" id="nature" name="preference" value="nature">
+        <label for="nature">Nature</label>
+        <input type="checkbox" id="adventurous" name="preference" value="adventurous">
+        <label for="adventurous">Adventurous</label>
+        <input type="checkbox" id="educational" name="preference" value="educational">
+        <label for="educational">Educational</label>
+        <input type="checkbox" id="food" name="preference" value="food">
+        <label for="food">Food</label>
+        <input type="checkbox" id="historical" name="preference" value="historical">
+        <label for="historical">Historical</label>
+    </div><br><br>
+    
+    <label for="needGuide">Need Guide:</label>
+    <select id="needGuide" name="needGuide">
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+    </select><br><br>
+    
+    <label for="needAccommodation">Need Accommodation:</label>
+    <select id="needAccommodation" name="needAccommodation">
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+    </select><br><br>
+    
+    <label for="needTaxi">Need Taxi:</label>
+    <select id="needTaxi" name="needTaxi">
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+    </select><br><br>
+    
+    <label for="hotelPreference">Hotel Preference:</label>
+    <select id="hotelPreference" name="hotelPreference">
+        <option value="veg">Vegetarian</option>
+        <option value="nonveg">Non-Vegetarian</option>
+    </select><br><br>
+    
+    <button type="submit">Signup</button>
+</form>
+
+<p>Already have an account? <a href="/traveller_login">Login</a></p>
+<p>Forgot password? <a href="/traveller_forgot_password">Reset Password</a></p>
+<p>Go to <a href="/">Home</a></p>
+
+<%- include('partials/footer'); -%>
+
+<script>
+    function validatePassword() {
+      var password = document.getElementById("password").value;
+      var confirmPassword = document.getElementById("confirmPassword").value;
+      if (password !== confirmPassword) {
+        alert("Passwords do not match!");
+        return false;
+      }
+      return true;
+    }
+</script>

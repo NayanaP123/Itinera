@@ -1,0 +1,31 @@
+<%- include('partials/header'); -%>
+
+<header>
+    <!-- Add header content here -->
+    <h1>Welcome to Activities Home</h1>
+    <nav>
+      <ul>
+        <li><a href="/profile">Profile</a></li>
+        <li><a href="/logout">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Add main content here -->
+    <h2>Featured Activities</h2>
+    <div class="activity-list">
+      <!-- Example activity card -->
+      <div class="activity-card">
+        <h3>Activity Name</h3>
+        <p>Description of the activity.</p>
+        <p>Location: Location of the activity</p>
+        <p>Price: $XX.XX</p>
+        <a href="/activity_details">Details</a>
+      </div>
+      <!-- Repeat for other activities -->
+    </div>
+  </main>
+
+
+  <%- include('partials/footer'); -%>
