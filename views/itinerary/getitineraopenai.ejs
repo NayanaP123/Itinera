@@ -1,8 +1,5 @@
-<%- include('partials/header'); -%>
+<%- include('../partials/header'); -%>
 
-<!-- <header> -->
-
-    
 
     <div class="App" style="font-family: Arial, sans-serif;
     max-width: 600px;
@@ -41,7 +38,7 @@
 </div>
 
 
-    <%- include('partials/footer'); -%>
+    <%- include('../partials/footer'); -%>
 
 
 
@@ -51,6 +48,13 @@
             const destinationCountry = document.getElementById("destinationCountry").value;
             const budget = document.getElementById("budget").value;
             const travelStyle = document.getElementById("travelStyle").value;
+            
+            // Check if elements exist before accessing values
+  if (!destinationCountry || !budget || !travelStyle) {
+    console.error("Input elements not found. Please check your HTML IDs.");
+    return; // Prevent further execution if elements are missing
+  }
+            
             // Get other input values similarly
 
             const API_KEY = "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";
@@ -84,8 +88,3 @@
     </script>
 
 
-<!-- 
-</header> -->
-
-<!-- 
-<%- include('partials/footer'); -%> -->

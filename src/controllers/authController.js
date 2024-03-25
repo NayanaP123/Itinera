@@ -1,5 +1,6 @@
 const User = require("../models/user");
-const jwt = require('jsonwebtoken');
+import userModel from '../models/user'
+//const jwt = require('jsonwebtoken');
 
 // handle errors
 const handleErrors = (err) => {
@@ -35,13 +36,13 @@ const handleErrors = (err) => {
   return errors;
 }
 
-// create json web token
-const maxAge = 3 * 24 * 60 * 60;
-const createToken = (id) => {
-  return jwt.sign({ id }, 'net ninja secret', {
-    expiresIn: maxAge
-  });
-};
+// // create json web token
+// const maxAge = 3 * 24 * 60 * 60;
+// const createToken = (id) => {
+//   return jwt.sign({ id }, 'net ninja secret', {
+//     expiresIn: maxAge
+//   });
+// };
 
 // controller actions
 module.exports.trav_signup_get = (req, res) => {
@@ -49,21 +50,27 @@ module.exports.trav_signup_get = (req, res) => {
 }
 
 module.exports.trav_login_get = (req, res) => {
-  res.render('trav_login');
+  res.render('common/logins');
 }
 
 module.exports.trav_signup_post = async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    const user = await User.create({ email, password });
-    const token = createToken(user._id);
-    res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 });
-    res.status(201).json({ user: user._id });
+    // Hash the password before storing (security best practice)
+    //const hashedPassword = await hashPassword(password);
+
+    // Create user object to pass to create function
+    const user = { name: username, email: email, password: password };
+    
+    // Call the create function from your model
+    const createdUser = await userModel.create(user);
+    
+    res.status(201).json({ message: 'Successfully registered', user: createdUser });
   }
   catch(err) {
     const errors = handleErrors(err);
-    res.status(400).json({ errors });
+    res.status(400).json({ message: 'Registration failed',errors });
   }
  
 }

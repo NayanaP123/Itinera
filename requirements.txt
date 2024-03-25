@@ -1,7 +1,8 @@
 npm i -g yarn
 yarn init -y
 yarn add -D @babel/core @babel/node @babel/reset -env
-yarn add express dotenv neo4j-driver
+yarn add express dotenv neo4j-driver bcrypt
+yarn add  nanoid@3 
 yarn add ejs
 
 

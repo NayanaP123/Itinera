@@ -1,7 +1,7 @@
-<%- include('partials/header'); -%>
+<%- include('../partials/header'); -%>
 
-<h2>Guide Signup</h2>
-<form action="/guide_home" onsubmit="return validatePassword()">
+<h2>Hotel Signup</h2>
+<form action="/hotel_home" onsubmit="return validatePassword()">
     <label for="username">Username:</label>
     <input type="text" id="username" name="username" required><br><br>
     
@@ -10,7 +10,7 @@
     
     <label for="confirmPassword">Confirm Password:</label>
     <input type="password" id="confirmPassword" name="confirmPassword" required><br><br>
-
+    
     <label for="availableDays">Available Days:</label><br>
     <input type="checkbox" id="sunday" name="availableDays" value="Sunday">
     <label for="sunday">Sunday</label>
@@ -26,37 +26,47 @@
     <label for="friday">Friday</label>
     <input type="checkbox" id="saturday" name="availableDays" value="Saturday">
     <label for="saturday">Saturday</label><br><br>
+    
+    <label for="menuPDF">Menu PDF Upload:</label>
+    <input type="file" id="menuPDF" name="menuPDF" accept=".pdf"><br><br>
+    
+    <label for="menuType">Type of Menu:</label><br>
+    <input type="checkbox" id="veg" name="menuType" value="Veg">
+    <label for="veg">Veg</label>
+    <input type="checkbox" id="nonVeg" name="menuType" value="Non-Veg">
+    <label for="nonVeg">Non-Veg</label>
+    <input type="checkbox" id="mixed" name="menuType" value="Mixed">
+    <label for="mixed">Mixed</label><br><br>
 
-    <label for="fee">Fee:</label>
-    <input type="number" id="fee" name="fee" required><br><br>
-
-    <label for="languagesKnown">Languages Known:</label><br>
-    <input type="checkbox" id="english" name="languagesKnown" value="English">
-    <label for="english">English</label>
-    <input type="checkbox" id="malayalam" name="languagesKnown" value="Malayalam">
-    <label for="malayalam">Malayalam</label>
-    <!-- Add more languages as needed -->
-
+    <label for="seatingAvailability">Number of Seating Availability:</label>
+    <input type="number" id="seatingAvailability" name="seatingAvailability" required><br><br>
+    
     <label for="location">Location:</label>
     <input type="text" id="location" name="location" required><br><br>
+    
+    <label for="accommodation">Accommodation Available:</label>
+    <select id="accommodation" name="accommodation">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+    </select><br><br>
 
     <button type="submit">Signup</button>
 </form>
 
-<p>Already have an account? <a href="/guide_login">Login</a></p>
+<p>Already have an account? <a href="/hotel_login">Login</a></p>
 <p>Forgot password? <a href="/admin_forgot_password">Reset Password</a></p>
 <p>Go to <a href="/">Home</a></p>
 
-<%- include('partials/footer'); -%>
+<%- include('../partials/footer'); -%>
 
 <script>
-    function validatePassword() {
-      var password = document.getElementById("password").value;
-      var confirmPassword = document.getElementById("confirmPassword").value;
-      if (password !== confirmPassword) {
+function validatePassword() {
+    var password = document.getElementById("password").value;
+    var confirmPassword = document.getElementById("confirmPassword").value;
+    if (password !== confirmPassword) {
         alert("Passwords do not match!");
         return false;
-      }
-      return true;
     }
+    return true;
+}
 </script>
