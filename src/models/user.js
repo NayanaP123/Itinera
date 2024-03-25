@@ -1,30 +1,20 @@
-const neo4jDriver = require('neo4j-driver');
+import { nanoid } from 'nanoid';
 
+const neo4jDriver = require('neo4j-driver');
 require('dotenv').config()
+
 const {
     url,
     db_username,
     db_password
 }=process.env
-
-
 const driver = neo4jDriver.driver(url, neo4jDriver.auth.basic(db_username, db_password));
 const session = driver.session();
 
-const findAll = async() =>{
-    const result=await session.run(`Match (u:User) return u`)
-    return result.records.map((i)=> i.get("u").properties )
-}
 
-const findact = async() =>{
-    const result=await session.run(`
-    MATCH (u:User)
-    WITH u.travelStyle as t
-    MATCH (l:Activity)
-    WHERE l.type CONTAINS t
-    RETURN l    
-    `)
-    return result.records.map((i)=> i.get("l").properties)
+const findAll = async () =>{
+    const result = await session.run(`Match (u:User) return u`)
+    return result.records.map(i=>i.get('u').properties)
 }
 
 const findById = async (id) =>{
@@ -44,11 +34,12 @@ const findByIdAndDelete = async (id) =>{
     await session.run(`MATCH (u:User {_id : '${id}'}) DELETE u`)
     return await findAll()
 }
+
 export default {
     findAll,
     findById,
     create,
     findByIdAndUpdate,
-    findByIdAndDelete,
-    findact
+    findByIdAndDelete
 }
+   
