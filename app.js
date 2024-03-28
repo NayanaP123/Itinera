@@ -3,6 +3,7 @@ import express from 'express'
 import user from './src/routes/user'
 import other from './src/routes/others'
 import common from './src/routes/common'
+import itin from './src/routes/itineraryroute'
 const cookieParser = require('cookie-parser');
 const path = require('path');
 
@@ -21,6 +22,7 @@ app.use(express.urlencoded({extended:true}))
 app.use('/user',user)
 app.use('/',common)
 app.use('/',other)
+app.use('/',itin)
 
 
 app.get('/', (req, res) => {
