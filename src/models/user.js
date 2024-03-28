@@ -23,7 +23,7 @@ const findById = async (id) =>{
 }
 const create = async (user) =>{
     const unique_id = nanoid(8)
-    await session.run(`CREATE (u:User {_id : '${unique_id}', name: '${user.name}', email: '${user.email}', password: '${user.password}'} ) return u`)
+    await session.run(`CREATE (u:User {_id : '${unique_id}', name: '${user.username}', email: '${user.email}', password: '${user.password}'} ) return u`)
     return await findById(unique_id)
 }
 const findByIdAndUpdate = async (id, user) =>{
