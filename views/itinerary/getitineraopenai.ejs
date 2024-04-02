@@ -32,7 +32,11 @@
             border-radius: 5px;
             cursor: pointer;">Get your Itinerary</button>
     </div>
-    <div id="output"></div>
+    <div id="output">
+        <h2>Your Travel Plan:</h2>
+        <ul id="itineraryList"></ul>
+      </div>
+      
 </div>
 
 <%- include('../partials/footer'); -%>
@@ -50,14 +54,14 @@
         console.log('Travel Style:', travelStyle);
         console.log('No of days:', NoofDays)
 
-        const API_KEY = "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";
+        const API_KEY = "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";
 
         const APIBody = {
             "model": "gpt-3.5-turbo-0125",
             "messages": [
                 {
                     "role": "system",
-                    "content": `Generate a personalized travel itinerary for a trip to ${destinationCountry} with a budget of ${budget} and number of days ${NoofDays} along with timestamps. The traveler is interested in a ${travelStyle} vacation and enjoys ...`
+                    "content": `Generate a personalized travel itinerary for a trip to ${destinationCountry} with a budget of ${budget} and number of days ${NoofDays} along with timestamps. The traveler is interested in a ${travelStyle} vacation`
                 }
             ],
             "temperature": 0.7,
@@ -74,14 +78,32 @@
             body: JSON.stringify(APIBody)
         });
         const data = await response.json();
-        const itinerary = data.choices[0].message.content;
+        const itinerary = data.choices[0].message.content.split("\n");
 
-        // Split itinerary by day and format each day
-        const days = itinerary.split('\n\n'); // Assuming each day is separated by two consecutive line breaks
-        const formattedItinerary = days.map((day, index) => `<h3>Day ${index +1}</h3><p>${day}</p>`).join('');
+        const itineraryList = document.getElementById("itineraryList");
 
-        document.getElementById("output").innerHTML = "<h2>Your Travel Plan:</h2>" + formattedItinerary;
+itineraryList.innerHTML = ""; // Clear existing content
+
+for (const activity of itinerary) {
+  // Split line into potential day and activity parts
+  const parts = activity.split(": ");
+
+  // Check if the first part starts with "Day" (case-insensitive)
+  if (parts[0].toLowerCase().startsWith("day")) {
+    const dayHeading = document.createElement("h3");
+    dayHeading.textContent = parts[0];
+    itineraryList.appendChild(dayHeading);
+  } else {
+    // Create a list item for the activity
+    const listItem = document.createElement("li");
+    listItem.textContent = activity;
+    itineraryList.appendChild(listItem);
+  }
+}
+
+       // document.getElementById("output").innerHTML = "<h2>Your Travel Plan:</h2>" + itinerary ;
+        
+    
     });
+
 </script>
-
-
