@@ -82,4 +82,4 @@ app.listen(process.env.PORT,() => console.log('Server listening on port 3005'));
 //     res.render('trav_home');
 // });
 
-// app.listen(process.env.PORT,() => console.log('Server listening on port 3005'));
+app.listen(process.env.PORT)
