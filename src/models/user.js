@@ -21,6 +21,11 @@ const findById = async (id) =>{
     const result = await session.run(`MATCH (u:User {_id : '${id}'} ) return u limit 1`)
     return result.records[0].get('u').properties
 }
+const findByemail = async (email) =>{
+    const result = await session.run(`MATCH (u:User {email : '${email}'} ) return u limit 1`)
+    return result.records[0].get('u').properties
+}
+
 const create = async (user) =>{
     const unique_id = nanoid(8)
     await session.run(`CREATE (u:User {_id : '${unique_id}', name: '${user.username}', email: '${user.email}', password: '${user.password}'} ) return u`)
@@ -40,6 +45,7 @@ export default {
     findById,
     create,
     findByIdAndUpdate,
-    findByIdAndDelete
+    findByIdAndDelete,
+    findByemail
 }
    

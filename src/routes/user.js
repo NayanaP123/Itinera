@@ -13,6 +13,10 @@ user.get('/:id', async (req,res)=>{
     const result = await userModel.findById(req.params.id)
     res.json(result)
 })
+user.get('/:email', async (req,res)=>{
+    const result = await userModel.findByemail(req.params.id)
+    res.json(result)
+})
 user.post('/', async (req,res)=>{
     const result = await userModel.create(req.body)
     res.json(result)

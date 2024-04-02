@@ -4,9 +4,12 @@ import user from './src/routes/user'
 import other from './src/routes/others'
 import common from './src/routes/common'
 import itin from './src/routes/itineraryroute'
+import { getPlacesData, getWeatherData } from './src/api/travelAdvisorAPI';
 const itineraryRoutes = require('./src/routes/itinerary');
-const cookieParser = require('cookie-parser');
+//const cookieParser = require('cookie-parser');
 const path = require('path');
+const bodyParser = require('body-parser');
+
 
 require('dotenv').config()
 

@@ -55,7 +55,6 @@
         console.log('No of days:', NoofDays)
 
         const API_KEY = "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";
-
         const APIBody = {
             "model": "gpt-3.5-turbo-0125",
             "messages": [
@@ -68,7 +67,6 @@
             "max_tokens": 500,
             "top_p": 1
         };
-
         const response = await fetch("https://api.openai.com/v1/chat/completions", {
             method: "POST",
             headers: {
@@ -82,28 +80,26 @@
 
         const itineraryList = document.getElementById("itineraryList");
 
-itineraryList.innerHTML = ""; // Clear existing content
+        itineraryList.innerHTML = ""; // Clear existing content
 
-for (const activity of itinerary) {
-  // Split line into potential day and activity parts
-  const parts = activity.split(": ");
+        for (const activity of itinerary) {
+        // Split line into potential day and activity parts
+        const parts = activity.split(": ");
 
-  // Check if the first part starts with "Day" (case-insensitive)
-  if (parts[0].toLowerCase().startsWith("day")) {
-    const dayHeading = document.createElement("h3");
-    dayHeading.textContent = parts[0];
-    itineraryList.appendChild(dayHeading);
-  } else {
-    // Create a list item for the activity
-    const listItem = document.createElement("li");
-    listItem.textContent = activity;
-    itineraryList.appendChild(listItem);
-  }
-}
+        // Check if the first part starts with "Day" (case-insensitive)
+        if (parts[0].toLowerCase().startsWith("day")) {
+            const dayHeading = document.createElement("h3");
+            dayHeading.textContent = parts[0];
+            itineraryList.appendChild(dayHeading);
+        } else {
+            // Create a list item for the activity
+            const listItem = document.createElement("li");
+            listItem.textContent = activity;
+            itineraryList.appendChild(listItem);
+        }
+        }
 
        // document.getElementById("output").innerHTML = "<h2>Your Travel Plan:</h2>" + itinerary ;
         
-    
     });
-
 </script>
