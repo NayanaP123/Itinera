@@ -13,8 +13,8 @@ user.get('/:id', async (req,res)=>{
     const result = await userModel.findById(req.params.id)
     res.json(result)
 })
-user.get('/:email', async (req,res)=>{
-    const result = await userModel.findByemail(req.params.id)
+user.get('/email/:email', async (req,res)=>{
+    const result = await userModel.findByemail(req.params.email)
     res.json(result)
 })
 user.post('/', async (req,res)=>{

@@ -1,11 +1,11 @@
-<%- include('../partials/header'); -%>
+<%- include('../partials/header1'); -%>
 
 <div class="container">
     <h2>Login</h2>
     <form id="loginForm">
         <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" required>
+            <label for="username">Email</label>
+            <input type="text" id="email" name="email" required>
         </div>
         <div class="form-group">
             <label for="password">Password</label>
@@ -19,20 +19,34 @@
 
   <%- include('../partials/footer'); -%>
   <script>
-    document.getElementById('loginForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent the form from submitting
+    const loginForm = document.getElementById('loginForm');
+    loginForm.addEventListener('submit', async (event) => {
+    event.preventDefault(); // Prevent default form submission
 
-        // Get the username and password from the form
-        var username = document.getElementById('username').value;
-        var password = document.getElementById('password').value;
-
-        // For demonstration, you can check the credentials here
-        // In a real application, you would send these to a server for verification
-        if (username === 'user' && password === 'password') {
-            alert('Login successful');
-            // Redirect to another page or perform further actions after successful login
-        } else {
-            alert('Invalid username or password');
-        }
+    
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    console.log(email, password);
+    // Basic client-side validation (optional but recommended)
+    if ( !email || !password) {
+      alert('Please fill in all required fields.');
+      return;
+    }
+    
+    const response = await fetch('/auth/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password }) // Send data as JSON
     });
+
+    if (response.ok) { // Handle successful registration
+        alert('Logged In successfully!');
+      // Optionally redirect to login page or other confirmation page
+       // Redirect to home
+       window.location.href = '/traveller_home';
+    } else { // Handle errors
+      const errorData = await response.json();
+      alert(errorData.message || 'Login failed. Please try again.');
+    }
+  });
 </script>

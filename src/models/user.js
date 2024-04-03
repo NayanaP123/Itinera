@@ -21,9 +21,15 @@ const findById = async (id) =>{
     const result = await session.run(`MATCH (u:User {_id : '${id}'} ) return u limit 1`)
     return result.records[0].get('u').properties
 }
+
 const findByemail = async (email) =>{
+    console.log(email)
     const result = await session.run(`MATCH (u:User {email : '${email}'} ) return u limit 1`)
+    const x= result.records[0].get('u').properties;
+    console.log(x)
+    let id=x._id
     return result.records[0].get('u').properties
+    //return await findById(id)
 }
 
 const create = async (user) =>{

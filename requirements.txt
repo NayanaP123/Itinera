@@ -9,5 +9,6 @@ yarn add ejs
 yarn add @google/generative-ai
 yarn add axios
 yarn add body-parser
+yarn add express-session
 
 http://localhost:3005/

@@ -11,7 +11,9 @@ other.get('/admin',async(req,res)=>{
 other.get('/traveller',async(req,res)=>{
     res.render('traveller/trav_signup')
 })
-
+other.post('/auth/traveller/traveller_home',async(req,res)=>{
+    res.render('traveller/traveller_home')
+})
 
 other.get('/guide',async(req,res)=>{
     res.render('guide/guide')

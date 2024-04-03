@@ -1,9 +1,11 @@
 
 import express from 'express'
+const session = require('express-session');
 import user from './src/routes/user'
 import other from './src/routes/others'
 import common from './src/routes/common'
 import itin from './src/routes/itineraryroute'
+import auth from './src/routes/authRoutes'
 import { getPlacesData, getWeatherData } from './src/api/travelAdvisorAPI';
 const itineraryRoutes = require('./src/routes/itinerary');
 //const cookieParser = require('cookie-parser');
@@ -19,6 +21,8 @@ const app = express()
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
+// Initialize session middleware
+app.use(session({ secret: 'my_secret_key' }));
 // Serve static files
 app.use(express.static('public'));
 app.use(express.json())
@@ -30,6 +34,7 @@ app.use('/user',user)
 app.use('/',common)
 app.use('/',other)
 app.use('/',itin)
+app.use('/auth',auth)
 app.use('/itinerary', itineraryRoutes);
 
 app.get('/', (req, res) => {
