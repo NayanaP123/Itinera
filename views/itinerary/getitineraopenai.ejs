@@ -42,6 +42,7 @@
 <%- include('../partials/footer'); -%>
 
 <script>
+    require('dotenv').config()
     document.getElementById("getItineraryButton").addEventListener("click", async function() {
         const destinationCountry = document.getElementById("destinationCountry").value;
         const budget = document.getElementById("budget").value;
@@ -54,7 +55,7 @@
         console.log('Travel Style:', travelStyle);
         console.log('No of days:', NoofDays)
 
-        const API_KEY ="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";
+        
         const APIBody = {
             "model": "gpt-3.5-turbo-0125",
             "messages": [
@@ -71,7 +72,7 @@
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": "Bearer " + API_KEY
+                "Authorization": "Bearer " + process.env.OpenAI_API_KEY
             },
             body: JSON.stringify(APIBody)
         });
