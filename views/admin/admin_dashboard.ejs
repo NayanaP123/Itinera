@@ -1,0 +1,39 @@
+<%- include('../partials/adm'); -%>
+<header>
+    <!-- Add header content here -->
+    <h1>Welcome to Your Travel Planner Dashboard</h1>
+   
+  </header>
+
+  <main>
+    <!-- Add main content here -->
+    <section class="upcoming-trips">
+      <h2>Upcoming Trips</h2>
+      <div class="trip-list">
+        <!-- Example trip card -->
+        <div class="trip-card">
+          <h3>Trip Name</h3>
+          <p>Destination: Destination of the trip</p>
+          <p>Date: Date of the trip</p>
+          <p>Duration: Duration of the trip</p>
+          <a href="/trip_details">Details</a>
+        </div>
+        <!-- Repeat for other upcoming trips -->
+      </div>
+    </section>
+
+    <section class="saved-destinations">
+      <h2>Saved Destinations</h2>
+      <div class="destination-list">
+        <!-- Example destination card -->
+        <div class="destination-card">
+          <h3>Destination Name</h3>
+          <p>Description of the destination.</p>
+          <p>Location: Location of the destination</p>
+          <a href="/destination_details">Details</a>
+        </div>
+        <!-- Repeat for other saved destinations -->
+      </div>
+    </section>
+  </main>
+  <%- include('../partials/footer'); -%>

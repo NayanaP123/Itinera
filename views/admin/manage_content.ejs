@@ -1,0 +1,34 @@
+<%- include('../partials/adm'); -%>
+<header>
+    <h1>Manage Content</h1>
+    
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <section>
+      <h2>Destinations</h2>
+      <ul>
+        <!-- List of destinations -->
+        <li><a href="/edit_destination?id=1">Destination Name 1</a></li>
+        <li><a href="/edit_destination?id=2">Destination Name 2</a></li>
+        <!-- Add more destinations as needed -->
+      </ul>
+      <a href="/add_destination">Add New Destination</a>
+    </section>
+
+    <section>
+      <h2>Activities</h2>
+      <ul>
+        <!-- List of activities -->
+        <li><a href="/edit_activity?id=1">Activity Name 1</a></li>
+        <li><a href="/edit_activity?id=2">Activity Name 2</a></li>
+        <!-- Add more activities as needed -->
+      </ul>
+      <a href="/add_activity">Add New Activity</a>
+    </section>
+
+    <!-- Add more sections for other types of content (e.g., hotels, restaurants) -->
+  </main>
+
+  <%- include('../partials/footer'); -%>
